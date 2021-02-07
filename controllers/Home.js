@@ -1,10 +1,11 @@
-const PAGE_CONF = require('../configs/page');
+const PAGE_CONF = require('../configs/page'),
+      navData = require('../configs/nav');
 
 class Home {
   async index (ctx, next) {
     await ctx.render('index', {
-      title: '首页',
-      PAGE_CONF: PAGE_CONF.INDEX
+      PAGE_CONF: PAGE_CONF.INDEX,
+      navData
     })
   }
 
