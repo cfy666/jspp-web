@@ -7,3 +7,13 @@ import '../styles/ui.scss';
 import '../styles/header.scss';
 import '../styles/carousel.scss';
 import '../styles/footer.scss';
+
+import Carousel from '../modules/Carousel';
+
+;(($) => {
+  const init = () => {
+    new Carousel().init();
+  }
+
+  init();
+})($)
