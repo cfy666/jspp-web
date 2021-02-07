@@ -5,4 +5,5 @@ import '../styles/common.css';
 import '../styles/iconfont.css';
 import '../styles/ui.scss';
 import '../styles/header.scss';
+import '../styles/carousel.scss';
 import '../styles/footer.scss';

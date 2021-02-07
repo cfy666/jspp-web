@@ -1,11 +1,18 @@
 const PAGE_CONF = require('../configs/page'),
-      navData = require('../configs/nav');
+      navData = require('../configs/nav'),
+      { IMG_BASE_URL } = require('../configs/url')
+
+const { getSliderData } = require('../services/Slider');
 
 class Home {
   async index (ctx, next) {
+    const sliderData = await getSliderData();
+
     await ctx.render('index', {
       PAGE_CONF: PAGE_CONF.INDEX,
-      navData
+      IMG_BASE_URL,
+      navData,
+      sliderData
     })
   }
 

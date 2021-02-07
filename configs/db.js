@@ -11,6 +11,6 @@ module.exports = {
 				idle: 10000
 			}
 		},
-		conf: ['txclass', 'root', ENV.isPrd ? 'xxx' : '12345678']
+		conf: ['txclass', 'root', ENV.isPrd ? 'xxx' : '']
 	}
 };
