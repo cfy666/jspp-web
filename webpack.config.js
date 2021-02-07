@@ -6,6 +6,10 @@ const path = require('path'),
 
 const config = {
   mode: 'production',
+  performance: {
+    maxEntrypointSize: 400000,
+    maxAssetSize: 400000
+  },
   entry: {
   	index: path.resolve(__dirname, './src/js/index.js'),
     list: path.resolve(__dirname, './src/js/list.js'),
@@ -107,7 +111,7 @@ const config = {
 
   devServer: {
   	watchOptions: {
-  		ignoreed: /node_modules/
+  		ignored: /node_modules/
   	},
   	host: 'localhost',
   	port: 3300
