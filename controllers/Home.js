@@ -3,20 +3,24 @@ const PAGE_CONF = require('../configs/page'),
       { IMG_BASE_URL } = require('../configs/url');
 
 const { getSliderData } = require('../services/Slider'),
-      { getRecomCourseData } = require('../services/RecomCourse');
+      { getRecomCourseData } = require('../services/RecomCourse'),
+      { getCollectinData } = require('../services/Collection');
 
 class Home {
   async index (ctx, next) {
     const sliderData = await getSliderData(),
-          recomCourseData = await getRecomCourseData();
+          recomCourseData = await getRecomCourseData(),
+          collectionData = await Promise.all(await getCollectinData());
 
-    await ctx.render('index', {
-      PAGE_CONF: PAGE_CONF.INDEX,
-      IMG_BASE_URL,
-      navData,
-      sliderData,
-      recomCourseData
-    })
+    ctx.body = collectionData;
+
+    // await ctx.render('index', {
+    //   PAGE_CONF: PAGE_CONF.INDEX,
+    //   IMG_BASE_URL,
+    //   navData,
+    //   sliderData,
+    //   recomCourseData
+    // })
   }
 
   async list (ctx, next) {
