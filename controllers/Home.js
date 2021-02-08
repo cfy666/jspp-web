@@ -1,18 +1,21 @@
 const PAGE_CONF = require('../configs/page'),
       navData = require('../configs/nav'),
-      { IMG_BASE_URL } = require('../configs/url')
+      { IMG_BASE_URL } = require('../configs/url');
 
-const { getSliderData } = require('../services/Slider');
+const { getSliderData } = require('../services/Slider'),
+      { getRecomCourseData } = require('../services/RecomCourse');
 
 class Home {
   async index (ctx, next) {
-    const sliderData = await getSliderData();
+    const sliderData = await getSliderData(),
+          recomCourseData = await getRecomCourseData();
 
     await ctx.render('index', {
       PAGE_CONF: PAGE_CONF.INDEX,
       IMG_BASE_URL,
       navData,
-      sliderData
+      sliderData,
+      recomCourseData
     })
   }
 
