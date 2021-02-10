@@ -3,7 +3,8 @@ const PAGE_CONF = require('../configs/page'),
       linkData = require('../configs/link'),
       manualData = require('../configs/manual'),
       { infomation } = require('../configs/qr'),
-      { IMG_BASE_URL } = require('../configs/url');
+      { IMG_BASE_URL } = require('../configs/url'),
+      { searchData } = require('../libs/utils');
 
 const { getSliderData } = require('../services/Slider'),
       { getRecomCourseData } = require('../services/RecomCourse'),
@@ -49,7 +50,7 @@ class Home {
       linkData,
       manualData,
       courseTabData,
-      courseData,
+      courseData: keyword ? searchData(courseData, keyword) : courseData,
       courseDataStr: JSON.stringify(courseData)
     });
   }

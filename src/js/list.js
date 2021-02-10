@@ -8,4 +8,5 @@ import '../styles/header.scss';
 import '../styles/courseNav.scss';
 import '../styles/courseList.scss';
 import '../styles/courseItem.scss';
+import '../styles/noDataTip.scss';
 import '../styles/footer.scss';
