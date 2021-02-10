@@ -14,10 +14,13 @@ import '../styles/teacher.scss';
 import '../styles/footer.scss';
 
 import Carousel from '../modules/Carousel';
+import HeaderSearch from '../modules/HeaderSearch';
 
 ;(($) => {
   const init = () => {
+    const headerSearch = HeaderSearch($);
     new Carousel().init();
+    headerSearch.init();
   }
 
   init();

@@ -8,7 +8,11 @@ function getEventType (ev) {
   return e.type;
 }
 
+function trimSpace (str) {
+  return str.replace(/\s+/g, '');
+}
 export {
   getTarget,
-  getEventType
+  getEventType,
+  trimSpace
 }

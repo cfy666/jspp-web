@@ -9,7 +9,8 @@ const { getSliderData } = require('../services/Slider'),
       { getRecomCourseData } = require('../services/RecomCourse'),
       { getCollectinData } = require('../services/Collection'),
       { getStarTeacherData } = require('../services/Teacher'),
-      { getGoodStudentData } = require('../services/Student');
+      { getGoodStudentData } = require('../services/Student'),
+      { getCourseCategory } = require('../services/CourseTab');
 
 class Home {
   async index (ctx, next) {
@@ -35,10 +36,18 @@ class Home {
   }
 
   async list (ctx, next) {
+    const keyword = ctx.params.kw,
+          courseTabData = await getCourseCategory();
+
     await ctx.render('list', {
-      title: '列表页',
-      PAGE_CONF: PAGE_CONF.LIST
-    })
+      PAGE_CONF: PAGE_CONF.LIST,
+      IMG_BASE_URL,
+      qrInfomation: infomation,
+      navData,
+      linkData,
+      manualData,
+      courseTabData
+    });
   }
 
   async error (ctx, next) {

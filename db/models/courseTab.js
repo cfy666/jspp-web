@@ -1,7 +1,7 @@
 const seq = require('../db_connect'),
       { STRING, INT } = require('../../configs/db_type');
 
-const CourseTab = seq.define('course_tab', {
+const CourseTab = seq.define('coure_tab', {
   cid: {
   	comment: 'course category ID',
   	type: INT,
