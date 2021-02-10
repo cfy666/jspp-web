@@ -57,9 +57,12 @@ class Home {
 
   async error (ctx, next) {
     await ctx.render('error', {
-      title: '错误页面',
-      PAGE_CONF: PAGE_CONF.ERROR
-    })
+      PAGE_CONF: PAGE_CONF.ERROR,
+      qrInfomation: infomation,
+      navData,
+      linkData,
+      manualData,
+    });
   }
 }
 
