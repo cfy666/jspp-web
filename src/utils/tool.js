@@ -11,8 +11,24 @@ function getEventType (ev) {
 function trimSpace (str) {
   return str.replace(/\s+/g, '');
 }
+
+function tplReplace (template, replaceObject) {
+	return template().replace(/{{(.*?)}}/g, (node, key) => {
+		return replaceObject[key];
+	});
+}
+
+function filterData (data, id) {
+  if (id === 0) {
+    return data;
+  }
+
+  return data.filter((item, index) => item.field === id);
+}
 export {
   getTarget,
   getEventType,
-  trimSpace
+  trimSpace,
+  tplReplace,
+  filterData
 }
