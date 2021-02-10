@@ -10,7 +10,8 @@ const { getSliderData } = require('../services/Slider'),
       { getCollectinData } = require('../services/Collection'),
       { getStarTeacherData } = require('../services/Teacher'),
       { getGoodStudentData } = require('../services/Student'),
-      { getCourseCategory } = require('../services/CourseTab');
+      { getCourseCategory } = require('../services/CourseTab'),
+      { getCourseData } = require('../services/Coures');
 
 class Home {
   async index (ctx, next) {
@@ -37,7 +38,8 @@ class Home {
 
   async list (ctx, next) {
     const keyword = ctx.params.kw,
-          courseTabData = await getCourseCategory();
+          courseTabData = await getCourseCategory(),
+          courseData = await getCourseData();
 
     await ctx.render('list', {
       PAGE_CONF: PAGE_CONF.LIST,
@@ -46,7 +48,9 @@ class Home {
       navData,
       linkData,
       manualData,
-      courseTabData
+      courseTabData,
+      courseData,
+      courseDataStr: JSON.stringify(courseData)
     });
   }
 

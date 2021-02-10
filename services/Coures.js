@@ -12,6 +12,20 @@ class CourseService {
       }
     })
   }
+
+  async getCourseData () {
+    return await CourseModel.findAll({
+      where: {
+        status: 1
+      },
+      order: [
+        ['id', 'DESC']
+      ],
+      attributes: {
+        exclude: ['cid', 'posterUrl', 'createdAt', 'updatedAt']
+      }
+    }) 
+  }
 }
 
 module.exports = new CourseService();

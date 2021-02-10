@@ -8,9 +8,18 @@
     courseTabData
   }) %>
 
+  <%- include('templates/list/courseList/index.ejs', {
+    courseData,
+    IMG_BASE_URL
+  }) %>
+
   <%- include('templates/common/footer/index.ejs', {
     linkData,
     manualData
+  }) %>
+
+  <%- include('datas/courseData.ejs', {
+    courseDataStr
   }) %>
 </div>
 <%- include('layout/foot.ejs', { PAGE_CONF }) %>
